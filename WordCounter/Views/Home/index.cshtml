@@ -1,0 +1,33 @@
+@using WordCounterProgram.Models;
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+    <title> WordCounter </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1><b> Your Handy Dandy Word Counter <b></h1>
+        <br>
+        <p><em> Make your life easier by using our Word Counter Program to detect your word string inside the sentence of your choice. </em><p>
+      </div>
+
+
+      @if (Model != null)
+      {
+        <h4><b> Enter your Word: </b> "@RepeatCounter.GetInputWord()"</h4>
+        <br>
+        <h4><b> Enter your Sentence: </b> "@RepeatCounter.GetInputSentence()"</h4>
+
+        <h3> Your sentence has @RepeatCounter.GetWordCount() occurrence(s) of your word. </h3>
+      }
+      <h3><a href="/form"> Search through a new word & sentence pair </a></h3>
+    </div>
+
+  </body>
+</html>

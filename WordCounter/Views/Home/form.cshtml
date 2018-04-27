@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+    <title> Word Counter Form </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1> Word Counter Inputs </h1>
+        <p> Enter your chosen word to detect it in your set sentence </p>
+      </div>
+    </div>
+
+    <div id="entryForm" class="container container-fluid">
+      <div class="col-md-6">
+      <form action="/" method="post" >
+      <input id="inputWord" title="Please enter a single word, with no spaces and containing only alpha characters Aa-Zz."  type="text" name="inputWord" placeholder= "Enter your word" required="true">
+      <input id="inputSentence" title="Please enter a sentence, containing only alpha characters Aa-Zz."  type="text" name="inputSentence" placeholder= "Enter your sentence" required="true">
+      <button type="submit" class="btn btn-primary" name="button"> Submit your inputs </button>
+      </form>
+
+    </div>
+   </div>
+  </body>
+</html>
