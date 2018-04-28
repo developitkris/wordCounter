@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WordCounterProgram.Models
@@ -16,8 +16,6 @@ namespace WordCounterProgram.Models
     {
       _inputWord = inputWord;
       _inputSentence = inputSentence;
-      _incomplete = inputIncomplete;
-      _invalid = inputInvalid;
       inputWord = inputWord.ToLower();
       string[] inputSentenceArr = inputSentence.ToLower().Split();
       foreach(string word in inputSentenceArr)
@@ -26,12 +24,33 @@ namespace WordCounterProgram.Models
         {
           _wordCount += 1;
         }
-        else if (word.Contains(inputWord.Split))
-        {
-          _wordCount += 1;
-        }
       }
       return _wordCount;
+    }
+
+    public static string ErrorMessages(string incomplete, string invalid)
+    {
+      _incomplete = inputIncomplete;
+      _invalid = inputInvalid;
+      string input = input.Split();
+      foreach(string notWord in input)
+      {
+        if (notWord == input)
+        {
+          Console.WriteLine("You have not completely filled out both required fields.  Please do so before proceeding.".);
+        } else {
+          Console.WriteLine("You have not entered a valid input, please make sure you only enter alpha characters.");
+        }
+      }
+    }
+    public static string GetIncompleteMsg()
+    {
+      return _incomplete;
+    }
+
+    public static string GetInvalidMsg()
+    {
+      return _invalid;
     }
 
     public static int GetWordCount()

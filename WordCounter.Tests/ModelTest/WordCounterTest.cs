@@ -14,23 +14,23 @@ namespace WordCounter.Test
     }
 
     [TestMethod]
-    public void InputComplete_IsWordAndSentenceComplete_True()
+    public void InputComplete_IsWordAndSentenceComplete_String()
     {
       string TestWord = "feast";
       string TestSentence = " ";
       string Result = "You have not completely filled out both required fields.  Please do so before proceeding.";
-      string Counter = RepeatCounter.WordCount(TestWord, TestSentence);
+      string Counter = RepeatCounter.ErrorMessages(TestWord, TestSentence);
       //if false, return result instead of true
       Assert.AreEqual(Result, Counter);
     }
 
     [TestMethod]
-    public void InputValid_AreInputsAlpha_True()
+    public void InputValid_AreInputsAlpha_String()
     {
       string TestWord = "f00d";
       string TestSentence = "we have food for all";
       string Result = "You have not entered a valid input, please make sure you only enter alpha characters.";
-      string Counter = RepeatCounter.WordCount(TestWord, TestSentence);
+      string Counter = RepeatCounter.ErrorMessages(TestWord, TestSentence);
       //if false, return result instead of true
       Assert.AreEqual(Result, Counter);
     }
@@ -41,16 +41,6 @@ namespace WordCounter.Test
       string TestWord = "z";
       string TestSentence = "people who study zoology";
       int Result = 1;
-      int Counter = RepeatCounter.WordCount(TestWord, TestSentence);
-      Assert.AreEqual(Result, Counter);
-    }
-
-    [TestMethod]
-    public void InputPartialWord_CountPartialStringInSentence_Int()
-    {
-      string TestWord = "abacus";
-      string TestSentence = "looked for contraband on shipments";
-      string Result = 1;
       int Counter = RepeatCounter.WordCount(TestWord, TestSentence);
       Assert.AreEqual(Result, Counter);
     }
